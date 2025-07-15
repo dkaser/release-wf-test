@@ -13,3 +13,4 @@ jobs:
           plugin_changelog: ${{ github.event.release.body }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           upload_url: ${{ github.event.release.upload_url }}
+          composer_dir: "src/usr/local/php/plugin-name/"
