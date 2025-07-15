@@ -10,8 +10,11 @@ jobs:
       - uses: dkaser/unraid-plugin-release-action@main
         with:
           plugin_version: ${{ github.event.release.name }}
-          tag_name: ${{ github.event.release.tag_name }}
           plugin_changelog: ${{ github.event.release.body }}
           github_token: ${{ secrets.GITHUB_TOKEN }}
           upload_url: ${{ github.event.release.upload_url }}
           composer_dir: "src/usr/local/php/plugin-name/"
+          go_dir: "fileactivity-watcher"
+          build_script: |
+            cd fileactivity-watcher
+            ./build.sh
