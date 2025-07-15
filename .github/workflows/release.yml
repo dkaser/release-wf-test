@@ -7,7 +7,7 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: dkaser/unraid-plugin-release-action@v1
+      - uses: dkaser/unraid-plugin-release-action@main
         with:
           plugin_version: ${{ github.event.release.name }}
           plugin_changelog: ${{ github.event.release.body }}
