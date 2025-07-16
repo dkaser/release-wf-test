@@ -17,3 +17,4 @@ jobs:
           build_script: |
             cd fileactivity-watcher
             ./build.sh
+          build_prereleases: "true"
