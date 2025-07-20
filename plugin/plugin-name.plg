@@ -4,7 +4,7 @@
 <PLUGIN 
   name="plugin-name"
   author="Your Name"
-  version="2.2.3"
+  version="2.3.0"
   launch="Tools/Something"
   pluginURL="https://raw.githubusercontent.com/dkaser/release-wf-test/main/plugin/plugin-name.plg"
   support="https://..."
@@ -16,6 +16,10 @@
 <CHANGES>
 <![CDATA[
 
+### 2.3.0
+
+Test with action update
+
 ### 2.2.3
 
 Yet another test
@@ -24,18 +28,14 @@ Yet another test
 
 Test 2.2.2
 
-### 2.2.1
-
-2.2.1
-
 
 For older releases, see https://github.com/dkaser/release-wf-test/releases
 ]]>
 </CHANGES>
 
-<FILE Name="/boot/config/plugins/plugin-name/unraid-plugin-template-2.2.3-noarch-1.txz">
-<URL>https://github.com/dkaser/release-wf-test/releases/download/2.2.3/unraid-plugin-template-2.2.3-noarch-1.txz</URL>
-<SHA256>8d687c6a63260f8e6b2efeb7bd402b4773be0f6b28f7b4670263d6a559a533bf</SHA256>
+<FILE Name="/boot/config/plugins/plugin-name/unraid-plugin-template-2.3.0-noarch-1.txz">
+<URL>https://github.com/dkaser/release-wf-test/releases/download/2.3.0/unraid-plugin-template-2.3.0-noarch-1.txz</URL>
+<SHA256>16c461f4ccb0a57de18c7675cf4458557517244a3c78647555704ed291f13a2f</SHA256>
 </FILE>
 
 <!--
@@ -44,17 +44,17 @@ The 'install' script.
 <FILE Run="/bin/bash">
 <INLINE>
 <![CDATA[
-upgradepkg --install-new /boot/config/plugins/plugin-name/unraid-plugin-template-2.2.3-noarch-1.txz
+upgradepkg --install-new /boot/config/plugins/plugin-name/unraid-plugin-template-2.3.0-noarch-1.txz
 
 # cleanup old versions
-rm -f $(ls /boot/config/plugins/plugin-name/unraid-plugin-template-*.txz 2>/dev/null | grep -v '2.2.3')
+rm -f $(ls /boot/config/plugins/plugin-name/unraid-plugin-template-*.txz 2>/dev/null | grep -v '2.3.0')
 
-echo "VERSION=2.2.3" > /usr/local/emhttp/plugins/plugin-name/version.ini
+echo "VERSION=2.3.0" > /usr/local/emhttp/plugins/plugin-name/version.ini
 
 echo ""
 echo "----------------------------------------------------"
 echo " plugin-name has been installed."
-echo " Version: 2.2.3"
+echo " Version: 2.3.0"
 echo "----------------------------------------------------"
 echo ""
 ]]>
