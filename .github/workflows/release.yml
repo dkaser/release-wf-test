@@ -11,6 +11,7 @@ jobs:
       contents: write
     steps:
       - uses: dkaser/unraid-plugin-release-action@main
+        id: release_action
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           composer_dir: "src/usr/local/php/plugin-name/"
@@ -18,3 +19,7 @@ jobs:
           build_script: |
             cd fileactivity-watcher
             ./build.sh
+
+      # Print out the commit SHA
+      - name: Print commit SHA
+        run: echo "Commit SHA: ${{ steps.release_action.outputs.commit_long_sha }}"
