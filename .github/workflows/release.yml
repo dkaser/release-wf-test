@@ -35,11 +35,9 @@ jobs:
             🚀 **Tailscale ${{ github.event.release.prerelease && 'Preview' || 'Release' }} : ${{ github.event.release.name }}**
 
             View Release: ${{ github.event.release.html_url }}
-            
+
           severity: info # only to make sure the embed is added
           color: '#ff00aa'
           title: Changelog
           description: ${{ github.event.release.body }}
-          # details: not needed because we overrode default description.
-          footer: ''
-
+          footer: ${{ github.event.release.tag_name }}
