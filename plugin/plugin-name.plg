@@ -4,7 +4,7 @@
 <PLUGIN 
   name="plugin-name"
   author="Your Name"
-  version="2.4.3"
+  version="2.4.4"
   launch="Tools/Something"
   pluginURL="https://raw.githubusercontent.com/dkaser/release-wf-test/main/plugin/plugin-name.plg"
   support="https://..."
@@ -16,6 +16,10 @@
 <CHANGES>
 <![CDATA[
 
+### 2.4.4
+
+- Test release 
+
 ### 2.4.3
 
 - Test Release
@@ -25,18 +29,14 @@
 
 - Test Release
 
-### 2.4.1
-
-2.4.1
-
 
 For older releases, see https://github.com/dkaser/release-wf-test/releases
 ]]>
 </CHANGES>
 
-<FILE Name="/boot/config/plugins/plugin-name/unraid-plugin-template-2.4.3-noarch-1.txz">
-<URL>https://github.com/dkaser/release-wf-test/releases/download/2.4.3/unraid-plugin-template-2.4.3-noarch-1.txz</URL>
-<SHA256>487244daec4182be36c2685b40693af4d82609cb2dceb5d006119c7ac22efe96</SHA256>
+<FILE Name="/boot/config/plugins/plugin-name/unraid-plugin-template-2.4.4-noarch-1.txz">
+<URL>https://github.com/dkaser/release-wf-test/releases/download/2.4.4/unraid-plugin-template-2.4.4-noarch-1.txz</URL>
+<SHA256>331a97d6e97114f77bc929af3743d492b52e59e61cc364b1706b4adec1746e63</SHA256>
 </FILE>
 
 <!--
@@ -45,17 +45,17 @@ The 'install' script.
 <FILE Run="/bin/bash">
 <INLINE>
 <![CDATA[
-upgradepkg --install-new /boot/config/plugins/plugin-name/unraid-plugin-template-2.4.3-noarch-1.txz
+upgradepkg --install-new /boot/config/plugins/plugin-name/unraid-plugin-template-2.4.4-noarch-1.txz
 
 # cleanup old versions
-rm -f $(ls /boot/config/plugins/plugin-name/unraid-plugin-template-*.txz 2>/dev/null | grep -v '2.4.3')
+rm -f $(ls /boot/config/plugins/plugin-name/unraid-plugin-template-*.txz 2>/dev/null | grep -v '2.4.4')
 
-echo "VERSION=2.4.3" > /usr/local/emhttp/plugins/plugin-name/version.ini
+echo "VERSION=2.4.4" > /usr/local/emhttp/plugins/plugin-name/version.ini
 
 echo ""
 echo "----------------------------------------------------"
 echo " plugin-name has been installed."
-echo " Version: 2.4.3"
+echo " Version: 2.4.4"
 echo "----------------------------------------------------"
 echo ""
 ]]>
