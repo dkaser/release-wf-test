@@ -24,3 +24,34 @@ jobs:
       # Print out the commit SHA
       - name: Print commit SHA
         run: echo "Commit SHA ${{ steps.release_action.outputs.commit_long_sha }}"
+
+      - name: Actions for Discord (Release)
+        uses: Ilshidur/action-discord@d2594079a10f1d6739ee50a2471f0ca57418b554
+        env:
+          DISCORD_WEBHOOK: ${{ secrets.TEST_DISCORD_WEBHOOK }}
+          DISCORD_EMBEDS: "{}"
+        with:
+          args: |
+            🚀 **Tailscale Release ${{ github.event.release.name }}**
+
+            View Release: ${{ github.event.release.html_url }}
+
+            **Changelog:**
+
+            ${{ github.event.release.body }}
+        if: github.event.release.prerelease == false
+
+      - name: Test Custom
+        uses: rjstone/discord-webhook-notify@v2
+        with:
+          webhookUrl: ${{ secrets.TEST_DISCORD_WEBHOOK }}
+          username: Tailscale Bot
+          avatarUrl: https://raw.githubusercontent.com/unraid/unraid-tailscale/refs/heads/trunk/logo.png
+          text: 🚀 **Tailscale Release ${{ github.event.release.name }}**
+          severity: info # only to make sure the embed is added
+          color: '#ff00aa'
+          title: Changelog
+          description: ${{ github.event.release.body }}
+          # details: not needed because we overrode default description.
+          footer: 'View Release: ${{ github.event.release.html_url }}'
+
