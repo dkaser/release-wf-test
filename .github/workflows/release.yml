@@ -31,12 +31,15 @@ jobs:
           webhookUrl: ${{ secrets.TEST_DISCORD_WEBHOOK }}
           username: Tailscale Bot
           avatarUrl: https://raw.githubusercontent.com/unraid/unraid-tailscale/refs/heads/trunk/logo.png
-          text: |
+          title: |
             🚀 **Tailscale ${{ github.event.release.prerelease && 'Preview' || 'Release' }} : ${{ github.event.release.name }}**
           severity: info # only to make sure the embed is added
           color: '#ff00aa'
-          title: Changelog
           description: ${{ github.event.release.body }}
-          footer: |
-            View Release: ${{ github.event.release.html_url }}
           linkUrl: ${{ github.event.release.html_url }}
+          fields: |
+            [
+              {"name": "Changelog", "value": ${{ toJson(github.event.release.body) }}, "inline": false},
+              {"name": "Released by", "value": ${{ toJson(github.event.release.author.login) }}, "inline": true},
+              {"name": "Tag", "value": ${{ toJson(github.event.release.tag_name) }}, "inline": true}
+            ]
