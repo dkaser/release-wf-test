@@ -34,17 +34,16 @@ jobs:
           avatarUrl: https://raw.githubusercontent.com/unraid/unraid-tailscale/refs/heads/trunk/logo.png
           thumbnailUrl: https://raw.githubusercontent.com/unraid/unraid-tailscale/refs/heads/trunk/logo.png
           title: |
-            **Tailscale Plugin : ${{ github.event.release.name }}**
+            # Tailscale Plugin Update : ${{ github.event.release.name }}
           severity: info
           color: '#00ff00'
           description: |
-            ### Changelog
+            ## Changelog
 
             ${{ github.event.release.body }}
-          linkUrl: ${{ github.event.release.html_url }}
           fields: |
             [
-              {"name": "Changelog", "value": ${{ toJson(github.event.release.body) }}},
+              {"name": "Github Link", "value": ${{ toJson(github.event.release.html_url) }} },
               {"name": "Channel", "value": ${{ toJson(github.event.release.prerelease && 'Preview' || 'Release') }}, "inline": true},
               {"name": "Commit", "value": ${{ toJson(github.event.release.target_commitish) }}, "inline": true},
             ]
