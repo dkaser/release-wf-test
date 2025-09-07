@@ -15,12 +15,12 @@ jobs:
         id: release_action
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          composer_dir: "src/usr/local/php/plugin-name/"
-          go_dir: "fileactivity-watcher"
+          # composer_dir: "src/usr/local/php/plugin-name/"
+          # go_dir: "fileactivity-watcher"
           build_prereleases: true
-          build_script: |
-            cd fileactivity-watcher
-            ./build.sh
+          # build_script: |
+          #   cd fileactivity-watcher
+          #   ./build.sh
 
       # # Print out the commit SHA
       # - name: Print commit SHA
