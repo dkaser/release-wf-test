@@ -2,11 +2,11 @@
 <!DOCTYPE PLUGIN>
 
 <PLUGIN 
-  name="plugin-name"
+  name="plugin-name-preview"
   author="Your Name"
   version="2.5.0"
   launch="Tools/Something"
-  pluginURL="https://raw.githubusercontent.com/dkaser/release-wf-test/main/plugin/plugin-name.plg"
+  pluginURL="https://raw.githubusercontent.com/dkaser/release-wf-test/main/plugin/plugin-name-preview.plg"
   support="https://..."
   min="7.0.0"
   
