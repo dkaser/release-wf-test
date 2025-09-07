@@ -32,6 +32,7 @@ jobs:
           webhookUrl: ${{ secrets.TEST_DISCORD_WEBHOOK }}
           username: Tailscale Bot
           avatarUrl: https://raw.githubusercontent.com/unraid/unraid-tailscale/refs/heads/trunk/logo.png
+          thumbnailUrl: https://raw.githubusercontent.com/unraid/unraid-tailscale/refs/heads/trunk/logo.png
           title: |
             🚀 **Tailscale Plugin : ${{ github.event.release.name }}**
           severity: info
