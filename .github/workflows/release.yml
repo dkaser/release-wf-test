@@ -37,15 +37,15 @@ jobs:
           color: '#00ff00'
           title: New Update Available
           description: |
-            # :rocket: Tailscale Plugin Update : ${{ github.event.release.name }}
+            ## :loudspeaker: Tailscale Plugin Update : ${{ github.event.release.name }}
 
-            ## :wrench: Changes
+            ### :wrench: Changes
 
             ${{ github.event.release.body }}
           fields: |
             [
-              {"name": ":link: Github Link", "value": ${{ toJson(github.event.release.html_url) }} },
-              {"name": "Channel", "value": ${{ toJson(github.event.release.prerelease && 'Preview' || 'Release') }}, "inline": true},
-              {"name": "Commit", "value": ${{ toJson(github.event.release.target_commitish) }}, "inline": true}
+              {"name": ":wrench: Changes", "value": ${{ toJson(github.event.release.body) }} },
+              {"name": "Channel", "value": ${{ toJson(github.event.release.prerelease && ':test_tube: Preview' || 'Release') }}, "inline": true},
+              {"name": ":label: Tag", "value": ${{ toJson(github.event.release.tag_name) }}, "inline": true},
+              {"name": ":link: Github Link", "value": ${{ toJson(github.event.release.html_url) }} }
             ]
-  
