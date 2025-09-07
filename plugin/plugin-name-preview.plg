@@ -4,7 +4,7 @@
 <PLUGIN 
   name="plugin-name-preview"
   author="Your Name"
-  version="2.5.0"
+  version="2.5.1"
   launch="Tools/Something"
   pluginURL="https://raw.githubusercontent.com/dkaser/release-wf-test/main/plugin/plugin-name-preview.plg"
   support="https://..."
@@ -15,6 +15,10 @@
 
 <CHANGES>
 <![CDATA[
+
+### 2.5.1
+
+Blah
 
 ### 2.5.0
 
@@ -36,18 +40,14 @@
 - Testing
 - Testing [Link](https://github.com)
 
-### 2.4.4
-
-- Test release 
-
 
 For older releases, see https://github.com/dkaser/release-wf-test/releases
 ]]>
 </CHANGES>
 
-<FILE Name="/boot/config/plugins/plugin-name/unraid-plugin-template-2.5.0-noarch-1.txz">
-<URL>https://github.com/dkaser/release-wf-test/releases/download/2.5.0/unraid-plugin-template-2.5.0-noarch-1.txz</URL>
-<SHA256>e9106457110253bc1cf6c00b33dda3d15f48eddd3b440a7c8f720fc5fa4512f3</SHA256>
+<FILE Name="/boot/config/plugins/plugin-name/unraid-plugin-template-2.5.1-noarch-1.txz">
+<URL>https://github.com/dkaser/release-wf-test/releases/download/2.5.1/unraid-plugin-template-2.5.1-noarch-1.txz</URL>
+<SHA256>bf517981fa01580ca18613524a216b63c4ef92f73e68f58442a05fbed5c5def5</SHA256>
 </FILE>
 
 <!--
@@ -56,17 +56,17 @@ The 'install' script.
 <FILE Run="/bin/bash">
 <INLINE>
 <![CDATA[
-upgradepkg --install-new /boot/config/plugins/plugin-name/unraid-plugin-template-2.5.0-noarch-1.txz
+upgradepkg --install-new /boot/config/plugins/plugin-name/unraid-plugin-template-2.5.1-noarch-1.txz
 
 # cleanup old versions
-rm -f $(ls /boot/config/plugins/plugin-name/unraid-plugin-template-*.txz 2>/dev/null | grep -v '2.5.0')
+rm -f $(ls /boot/config/plugins/plugin-name/unraid-plugin-template-*.txz 2>/dev/null | grep -v '2.5.1')
 
-echo "VERSION=2.5.0" > /usr/local/emhttp/plugins/plugin-name/version.ini
+echo "VERSION=2.5.1" > /usr/local/emhttp/plugins/plugin-name/version.ini
 
 echo ""
 echo "----------------------------------------------------"
 echo " plugin-name has been installed."
-echo " Version: 2.5.0"
+echo " Version: 2.5.1"
 echo "----------------------------------------------------"
 echo ""
 ]]>
