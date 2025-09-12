@@ -20,6 +20,8 @@ Markdown="false"
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
 */
 
+// Test update
+
 try {
     $docroot = $docroot ?? $_SERVER['DOCUMENT_ROOT'] ?: '/usr/local/emhttp';
     require_once "{$docroot}/plugins/plugin-name/include/page.php";
