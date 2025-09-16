@@ -4,7 +4,7 @@
 <PLUGIN 
   name="plugin-name"
   author="Your Name"
-  version="2.5.6"
+  version="2.5.7"
   launch="Tools/Something"
   pluginURL="https://raw.githubusercontent.com/dkaser/release-wf-test/main/plugin/plugin-name.plg"
   support="https://..."
@@ -16,6 +16,24 @@
 <CHANGES>
 <![CDATA[
 
+### 2.5.7
+
+Test
+
+### 2025.09.12.0258
+
+### 🚀 Features
+
+- feat: new test ([#2](https://github.com/dkaser/release-wf-test/pull/2))
+
+### 🐛 Bug Fixes
+
+- fix: add text ([#1](https://github.com/dkaser/release-wf-test/pull/1))
+
+### 🧰 Maintenance
+
+- chore: fix comment ([#3](https://github.com/dkaser/release-wf-test/pull/3))
+
 ### 2.5.6
 
 - Blah
@@ -23,32 +41,14 @@
 - Blah
 - Blah
 
-### 2.5.5
-
-- Blah
-- Blah
-- Blah
-- Blah
-
-### 2.5.4
-
-## Header2
-
-- Test
-
-### Header3
-
-- Test
-- Test
-
 
 For older releases, see https://github.com/dkaser/release-wf-test/releases
 ]]>
 </CHANGES>
 
-<FILE Name="/boot/config/plugins/plugin-name/unraid-plugin-template-2.5.6-noarch-1.txz">
-<URL>https://github.com/dkaser/release-wf-test/releases/download/2.5.6/unraid-plugin-template-2.5.6-noarch-1.txz</URL>
-<SHA256>91407307e7487898c4f9fbcca3e6307e5aa2e30fb82fe13cf45f7b94ecafb718</SHA256>
+<FILE Name="/boot/config/plugins/plugin-name/unraid-plugin-template-2.5.7-noarch-1.txz">
+<URL>https://github.com/dkaser/release-wf-test/releases/download/2.5.7/unraid-plugin-template-2.5.7-noarch-1.txz</URL>
+<SHA256>3d5a93038b63af523f04b8a201c8bfc2d06edf1f7695ad82e4bd8e7df36e752a</SHA256>
 </FILE>
 
 <!--
@@ -57,17 +57,17 @@ The 'install' script.
 <FILE Run="/bin/bash">
 <INLINE>
 <![CDATA[
-upgradepkg --install-new /boot/config/plugins/plugin-name/unraid-plugin-template-2.5.6-noarch-1.txz
+upgradepkg --install-new /boot/config/plugins/plugin-name/unraid-plugin-template-2.5.7-noarch-1.txz
 
 # cleanup old versions
-rm -f $(ls /boot/config/plugins/plugin-name/unraid-plugin-template-*.txz 2>/dev/null | grep -v '2.5.6')
+rm -f $(ls /boot/config/plugins/plugin-name/unraid-plugin-template-*.txz 2>/dev/null | grep -v '2.5.7')
 
-echo "VERSION=2.5.6" > /usr/local/emhttp/plugins/plugin-name/version.ini
+echo "VERSION=2.5.7" > /usr/local/emhttp/plugins/plugin-name/version.ini
 
 echo ""
 echo "----------------------------------------------------"
 echo " plugin-name has been installed."
-echo " Version: 2.5.6"
+echo " Version: 2.5.7"
 echo "----------------------------------------------------"
 echo ""
 ]]>
