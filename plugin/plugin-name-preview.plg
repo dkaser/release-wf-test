@@ -4,7 +4,7 @@
 <PLUGIN 
   name="plugin-name-preview"
   author="Your Name"
-  version="2025.09.16.0416"
+  version="2025.09.16.0419"
   launch="Tools/Something"
   pluginURL="https://raw.githubusercontent.com/dkaser/release-wf-test/main/plugin/plugin-name-preview.plg"
   support="https://..."
@@ -16,6 +16,12 @@
 <CHANGES>
 <![CDATA[
 
+### 2025.09.16.0419
+
+### 🚀 Features
+
+- Test 4 ([#4](https://github.com/dkaser/release-wf-test/pull/4))
+
 ### 2025.09.16.0416
 
 * No changes
@@ -24,21 +30,14 @@
 
 Test
 
-### 2.5.6
-
-- Blah
-- Blah
-- Blah
-- Blah
-
 
 For older releases, see https://github.com/dkaser/release-wf-test/releases
 ]]>
 </CHANGES>
 
-<FILE Name="/boot/config/plugins/plugin-name/unraid-plugin-template-2025.09.16.0416-noarch-1.txz">
-<URL>https://github.com/dkaser/release-wf-test/releases/download/2025.09.16.0416/unraid-plugin-template-2025.09.16.0416-noarch-1.txz</URL>
-<SHA256>342d0778fe42a8a0c43b713d87ccc95c5d1c2d781d29374c54fca4ad1e252743</SHA256>
+<FILE Name="/boot/config/plugins/plugin-name/unraid-plugin-template-2025.09.16.0419-noarch-1.txz">
+<URL>https://github.com/dkaser/release-wf-test/releases/download/2025.09.16.0419/unraid-plugin-template-2025.09.16.0419-noarch-1.txz</URL>
+<SHA256>f1c7d4ee104020e1662eb869dbe49d6719e6524ecda5f4e4ac4052c3d947eef7</SHA256>
 </FILE>
 
 <!--
@@ -47,17 +46,17 @@ The 'install' script.
 <FILE Run="/bin/bash">
 <INLINE>
 <![CDATA[
-upgradepkg --install-new /boot/config/plugins/plugin-name/unraid-plugin-template-2025.09.16.0416-noarch-1.txz
+upgradepkg --install-new /boot/config/plugins/plugin-name/unraid-plugin-template-2025.09.16.0419-noarch-1.txz
 
 # cleanup old versions
-rm -f $(ls /boot/config/plugins/plugin-name/unraid-plugin-template-*.txz 2>/dev/null | grep -v '2025.09.16.0416')
+rm -f $(ls /boot/config/plugins/plugin-name/unraid-plugin-template-*.txz 2>/dev/null | grep -v '2025.09.16.0419')
 
-echo "VERSION=2025.09.16.0416" > /usr/local/emhttp/plugins/plugin-name/version.ini
+echo "VERSION=2025.09.16.0419" > /usr/local/emhttp/plugins/plugin-name/version.ini
 
 echo ""
 echo "----------------------------------------------------"
 echo " plugin-name has been installed."
-echo " Version: 2025.09.16.0416"
+echo " Version: 2025.09.16.0419"
 echo "----------------------------------------------------"
 echo ""
 ]]>
