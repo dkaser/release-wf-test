@@ -24,5 +24,5 @@ exclude-labels:
   - "perf"
   - "refactor"
 replacers:
-  - search: "/^(feat|fix|chore|refactor)(\\(.+\\))?: /"
+  - search: "/^(feat|fix|chore|refactor)(\\(.+\\))?: /m"
     replace: ""
