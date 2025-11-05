@@ -4,7 +4,7 @@
 <PLUGIN 
   name="upgrade-test-plugin"
   author="Your Name"
-  version="2025.11.04.0000"
+  version="2025.11.04.0001"
   launch="Tools/Something"
   pluginURL="https://raw.githubusercontent.com/dkaser/release-wf-test/main/plugin/test-plugin.plg"
   support="https://..."
@@ -29,7 +29,7 @@ if (version_compare($unraidVersion['version'], '7.1', '<')) {
 }
 
 if ($oldPlugin !== "") {
-    system("/usr/local/sbin/plugin upgrade $oldPlugin force");
+    system("/usr/local/sbin/plugin install $oldPlugin force");
     exit(1);
 }
 ]]>
@@ -46,7 +46,7 @@ The 'install' script.
 echo ""
 echo "----------------------------------------------------"
 echo " plugin-name has been installed."
-echo " Version: 2025.11.04.0000"
+echo " Version: 2025.11.04.0001"
 echo "----------------------------------------------------"
 echo ""
 ]]>
