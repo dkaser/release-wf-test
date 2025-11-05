@@ -4,7 +4,7 @@
 <PLUGIN 
   name="upgrade-test-plugin"
   author="Your Name"
-  version="2025.11.04.0006"
+  version="2025.11.04.0007"
   launch="Tools/Something"
   pluginURL="https://raw.githubusercontent.com/dkaser/release-wf-test/main/plugin/test-plugin.plg"
   support="https://..."
@@ -36,11 +36,11 @@ if (version_compare($unraidVersion['version'], '7.1', '<')) {
 
 if ($oldPlugin !== "") {
     echo "**************************************************\n";
-    echo "* Your current Unraid version is out of date and *\n";
-    echo "* is no longer supported by this plugin.         *\n";
-    echo "*                                                *\n";
-    echo "* The last supported version of the plugin for   *\n";
-    echo "* your Unraid version will now be installed.     *\n";
+    echo "* Your current Unraid version is out of date and  \n";
+    echo "* is no longer supported by this plugin.          \n";
+    echo "*                                                 \n";
+    echo "* The last supported version of the plugin for    \n";
+    echo "* your Unraid version will now be installed.      \n";
     echo "**************************************************\n\n";
     system("/usr/local/sbin/plugin install $oldPlugin");
     exit(1);
@@ -59,7 +59,7 @@ The 'install' script.
 echo ""
 echo "----------------------------------------------------"
 echo " plugin-name has been installed."
-echo " Version: 2025.11.04.0006"
+echo " Version: 2025.11.04.0007"
 echo "----------------------------------------------------"
 echo ""
 ]]>
