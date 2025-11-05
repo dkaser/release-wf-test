@@ -35,7 +35,13 @@ if (version_compare($unraidVersion['version'], '7.1', '<')) {
 }
 
 if ($oldPlugin !== "") {
-    echo "Installing last compatible plugin version...";
+    echo "**************************************************\n";
+    echo "* Your current Unraid version is out of date and *\n";
+    echo "* is no longer supported by this plugin.         *\n";
+    echo "*                                                *\n";
+    echo "* The last supported version of the plugin for   *\n";
+    echo "* your Unraid version will now be installed.     *\n";
+    echo "**************************************************\n\n";
     system("/usr/local/sbin/plugin install $oldPlugin");
     exit(1);
 }
