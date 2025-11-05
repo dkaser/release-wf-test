@@ -4,7 +4,7 @@
 <PLUGIN 
   name="upgrade-test-plugin"
   author="Your Name"
-  version="2025.11.04.0002"
+  version="2025.11.04.0003"
   launch="Tools/Something"
   pluginURL="https://raw.githubusercontent.com/dkaser/release-wf-test/main/plugin/test-plugin.plg"
   support="https://..."
@@ -24,8 +24,9 @@ Blah
 $oldPlugin = "";
 $unraidVersion = parse_ini_file("/etc/unraid-version");
 
-if (!isset($unraidVersion['version'])) {
-    echo "Unable to determine Unraid version.";
+// Skip this check pre-boot, this creates a minor risk that someone could update, then downgrade the OS,
+// but the alternative is that the plugin could fail to downgrade during boot (e.g., if network was not ready).
+if (!file_exists('/var/local/emhttp/var.ini') || !isset($unraidVersion['version'])) {
     exit(0);
 }
 
@@ -35,7 +36,7 @@ if (version_compare($unraidVersion['version'], '7.1', '<')) {
 
 if ($oldPlugin !== "") {
     echo "Installing last compatible plugin version...";
-    system("/usr/local/sbin/plugin install $oldPlugin force");
+    system("/usr/local/sbin/plugin install $oldPlugin");
     exit(1);
 }
 ]]>
@@ -52,7 +53,7 @@ The 'install' script.
 echo ""
 echo "----------------------------------------------------"
 echo " plugin-name has been installed."
-echo " Version: 2025.11.04.0002"
+echo " Version: 2025.11.04.0003"
 echo "----------------------------------------------------"
 echo ""
 ]]>
