@@ -4,7 +4,7 @@
 <PLUGIN 
   name="upgrade-test-plugin"
   author="Your Name"
-  version="2025.09.16.0416"
+  version="2025.11.04.0000"
   launch="Tools/Something"
   pluginURL="https://raw.githubusercontent.com/dkaser/release-wf-test/main/plugin/test-plugin.plg"
   support="https://..."
@@ -17,6 +17,24 @@
 Blah
 </CHANGES>
 
+<FILE Run="/usr/bin/php">
+<INLINE>
+<![CDATA[
+<?php
+$oldPlugin = "";
+$unraidVersion = parse_ini_file("/etc/unraid-version");
+
+if (version_compare($unraidVersion['version'], '7.1', '<')) {
+    $oldPlugin = "https://raw.githubusercontent.com/dkaser/release-wf-test/refs/tags/unraid-7.0/plugin/test-plugin.plg";
+}
+
+if ($oldPlugin !== "") {
+    system("/usr/local/sbin/plugin upgrade $oldPlugin force");
+    exit(1);
+}
+]]>
+</INLINE>
+</FILE>
 
 <!--
 The 'install' script.
@@ -28,7 +46,7 @@ The 'install' script.
 echo ""
 echo "----------------------------------------------------"
 echo " plugin-name has been installed."
-echo " Version: 2025.09.16.0416"
+echo " Version: 2025.11.04.0000"
 echo "----------------------------------------------------"
 echo ""
 ]]>
