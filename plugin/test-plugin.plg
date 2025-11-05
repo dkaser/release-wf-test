@@ -1,0 +1,39 @@
+<?xml version='1.0' standalone='yes'?>
+<!DOCTYPE PLUGIN>
+
+<PLUGIN 
+  name="upgrade-test-plugin"
+  author="Your Name"
+  version="2025.09.16.0416"
+  launch="Tools/Something"
+  pluginURL="https://raw.githubusercontent.com/dkaser/release-wf-test/main/plugin/test-plugin.plg"
+  support="https://..."
+  min="7.0.0"
+  
+  icon="folder"
+>
+
+<CHANGES>
+Blah
+</CHANGES>
+
+
+<!--
+The 'install' script.
+-->
+<FILE Run="/bin/bash">
+<INLINE>
+<![CDATA[
+
+echo ""
+echo "----------------------------------------------------"
+echo " plugin-name has been installed."
+echo " Version: 2025.09.16.0416"
+echo "----------------------------------------------------"
+echo ""
+]]>
+</INLINE>
+</FILE>
+
+
+</PLUGIN>
