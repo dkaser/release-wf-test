@@ -1,14 +1,25 @@
 categories:
   - title: "🚀 Features"
-    labels:
-      - "feat"
+    when:
+      labels:
+        - "feat"
   - title: "🐛 Bug Fixes"
-    labels:
-      - "fix"
+    when:
+      labels:
+        - "fix"
   - title: "🧰 Maintenance"
-    labels:
-      - "chore"
-      - "refactor"
+    when:
+      labels:
+        - "chore"
+        - "refactor"
+  - type: "pre-exclude"
+    when:
+      labels:
+        - "docs"
+        - "test"
+        - "ci"
+        - "perf"
+        - "refactor"
 change-template: "- $TITLE ([#$NUMBER]($URL))"
 category-template: "### $TITLE"
 change-title-escapes: '\<*_&' # You can add # and @ to disable mentions, and add ` to disable code blocks.
@@ -17,12 +28,6 @@ template: |
 prerelease: "true"
 include-pre-releases: "true"
 latest: "false"
-exclude-labels:
-  - "docs"
-  - "test"
-  - "ci"
-  - "perf"
-  - "refactor"
 replacers:
   - search: "/^- (feat|fix|chore|refactor)(\\(.+\\))?: /m"
     replace: "- "
