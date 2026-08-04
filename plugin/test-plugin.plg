@@ -1,0 +1,70 @@
+<?xml version='1.0' standalone='yes'?>
+<!DOCTYPE PLUGIN>
+
+<PLUGIN 
+  name="upgrade-test-plugin"
+  author="Your Name"
+  version="2025.11.04.0007"
+  launch="Tools/Something"
+  pluginURL="https://raw.githubusercontent.com/dkaser/release-wf-test/main/plugin/test-plugin.plg"
+  support="https://..."
+  min="7.0.0"
+  
+  icon="folder"
+>
+
+<CHANGES>
+Blah
+</CHANGES>
+
+<FILE Run="/usr/bin/php">
+<INLINE>
+<![CDATA[
+<?php
+$oldPlugin = "";
+$unraidVersion = parse_ini_file("/etc/unraid-version");
+
+// Skip this check pre-boot, this creates a minor risk that someone could update, then downgrade the OS,
+// but the alternative is that the plugin could fail to downgrade during boot (e.g., if network was not ready).
+if (!file_exists('/var/local/emhttp/var.ini') || !isset($unraidVersion['version'])) {
+    exit(0);
+}
+
+if (version_compare($unraidVersion['version'], '7.1', '<')) {
+    $oldPlugin = "https://raw.githubusercontent.com/dkaser/release-wf-test/refs/tags/unraid-7.0/plugin/test-plugin.plg";
+}
+
+if ($oldPlugin !== "") {
+    echo "**************************************************\n";
+    echo "* Your current Unraid version is out of date and  \n";
+    echo "* is no longer supported by this plugin.          \n";
+    echo "*                                                 \n";
+    echo "* The last supported version of the plugin for    \n";
+    echo "* your Unraid version will now be installed.      \n";
+    echo "**************************************************\n\n";
+    system("/usr/local/sbin/plugin install $oldPlugin");
+    exit(1);
+}
+]]>
+</INLINE>
+</FILE>
+
+<!--
+The 'install' script.
+-->
+<FILE Run="/bin/bash">
+<INLINE>
+<![CDATA[
+
+echo ""
+echo "----------------------------------------------------"
+echo " plugin-name has been installed."
+echo " Version: 2025.11.04.0007"
+echo "----------------------------------------------------"
+echo ""
+]]>
+</INLINE>
+</FILE>
+
+
+</PLUGIN>
